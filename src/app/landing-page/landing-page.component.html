@@ -1,0 +1,18 @@
+<div class="slider-container">
+  <div class="main-slide" [ngStyle]="{ 'background-image': 'url(' + currentSlide.image + ')' }">
+
+    <!-- Thumbnails -->
+    <div class="thumbnails">
+      <img *ngFor="let slide of slides; let i = index" [src]="slide.image" (click)="changeSlide(i)"
+        [class.active]="i === currentSlideIndex" />
+    </div>
+
+    <!-- Slide Content at Bottom -->
+    <div class="contents">
+      <h1 [class.animate-title]="animateTitle">{{ currentSlide.title }}</h1>
+      <h4>{{ currentSlide.description }}</h4>
+      <button routerLink="comming-soon">{{ currentSlide.button }}</button>
+    </div>
+
+  </div>
+</div>
